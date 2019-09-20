@@ -345,7 +345,6 @@ class MicroChild(Model):
     Args:
       stacked_convs: number of separable convs to apply.
     """
-
     for conv_id in range(stack_convs):
       inp_c = self._get_C(x)
       if conv_id == 0:
@@ -503,7 +502,6 @@ class MicroChild(Model):
               y = tf.nn.conv2d(y, w, [1, 1, 1, 1], "SAME",
                                data_format=self.data_format)
               y = batch_norm(y, is_training, data_format=self.data_format)
-
           if (y_op in [0, 1, 2, 3] and
               self.drop_path_keep_prob is not None and
               is_training):
